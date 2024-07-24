@@ -1,0 +1,17 @@
+go.sum
+example-geolocation
+tmp/*
+.env
+
+.DS_Store
+cover.out
+coverage.html
+ 
+
+report/*
+cover.json
+severity.json
+execution.html
+execution.xml
+severity.html
+.scannerwork/*

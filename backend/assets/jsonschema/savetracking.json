@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "บันทึกตำแหน่งเป็นพิกัด",
+    "required": [
+        "lat",
+        "lon"
+    ],
+    "properties": {
+        "lat": {
+            "type": "number"
+        },
+        "lon": {
+            "type": "number"
+        }
+    }
+}

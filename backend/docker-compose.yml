@@ -1,0 +1,45 @@
+version: "3"
+
+services: 
+
+  example-geolocation:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile-development
+    container_name: example-geolocation
+    env_file: .env
+    networks: 
+      - default
+    ports:
+      - 3000:3000
+      - 3010:3100
+    volumes:
+      - .:/go/src/github.com/Blackmocca/example-geolocation
+      - ./assets:/go/src/github.com/Blackmocca/example-geolocation/assets
+    depends_on:
+      - example-db
+
+  example-db:
+    image: postgis/postgis
+    container_name: example-db
+    networks:
+      - default
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=tracking
+      - POSTGRES_USER=example
+      - POSTGRES_PASSWORD=example
+
+  example-adminer:
+    image: adminer
+    container_name: example-adminer
+    networks:
+      - default
+    ports:
+      - 5433:8080
+  
+networks:
+  default:
+    external:
+      name: example
