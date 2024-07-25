@@ -34,7 +34,7 @@ func psqlConnect() *sqlx.DB {
 
 func initscript(client *sqlx.DB) {
 	sql := `
-	CREATE EXTENSION IF NOT EXISTS postgis;
+	
 
 	CREATE TABLE IF NOT EXISTS trackings (
 		id SERIAL PRIMARY KEY,
